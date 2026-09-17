@@ -13,5 +13,19 @@ pipeline{
                 }
             }
         }
+
+        stage("Docker login"){
+            steps{
+                script{
+                    docker.withRegistry(
+                        'https://registry.hub.docker.com'
+                        'dockerhub-credentials'
+                    )
+                    {
+                        echo "successfully authenticated with docker hub"
+                    }
+                }
+            }
+        }
     }
 }
