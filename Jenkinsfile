@@ -6,9 +6,11 @@ pipeline{
                 checkout scm
             }
         }
-        stage('Test'){
+        stage('Build Docker image'){
             steps{
-                sh 'ls -la'
+                script{
+                    def app= docker.build("avejlanjekar45/jenkins-docker-pipeline:${GIT_COMMIT}")
+                }
             }
         }
     }
