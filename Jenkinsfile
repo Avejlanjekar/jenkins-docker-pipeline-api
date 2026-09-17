@@ -18,7 +18,7 @@ pipeline{
             steps{
                 script{
                     docker.withRegistry(
-                        'https://registry.hub.docker.com'
+                        'https://registry.hub.docker.com',
                         'dockerhub-credentials'
                     )
                     {
